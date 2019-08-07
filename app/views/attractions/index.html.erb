@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<div class="attraction_name">
+<div class="d-flex justify-content-center">
+<%= @random_attraction.name%>
+</div>
+</div>
+
+<div class="d-flex justify-content-start">
+<%= image_tag @random_attraction.pictures.first %>
+</div>
+
+<div class="d-flex justify-content-end">
+<%=  @random_attraction.description %>
+</div>
+
+<div id="attraction_btn">
+<div class="d-flex justify-content-center">
+<%= form_tag attractions_path, :method => :get do %>
+  
+    <div id="btn_feature">
+    <%= link_to locations_path, class: "btn_undo" do %>
+    <i class="fas fa-undo"></i>
+    <% end %>
+
+
+    <%= link_to  attractions_path, class: "btn_like" do %>
+    <i class="fas fa-thumbs-up"></i>
+    <% end %>
+    
+   
+  
+    <%= button_tag type: 'submit', class: "btn_dislike" do %>
+    <i class="fas fa-thumbs-down"></i>
+    <% end %>
+    </div>
+  
+<% end %>
+</div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attractions.each do |attraction| %>
+      <tr>
+        <td><%= attraction.name %></td>
+        <td><%= attraction.description %></td>
+        <td><%= attraction.picture %></td>
+        <td><%= attraction.location %></td>
+        <td><%= link_to 'Show', attraction %></td>
+        <td><%= link_to 'Edit', edit_attraction_path(attraction) %></td>
+        <td><%= link_to 'Destroy', attraction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attraction', new_attraction_path %>

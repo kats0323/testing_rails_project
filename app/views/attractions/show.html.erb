@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attraction.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @attraction.description %>
+</p>
+
+<p>
+  <% @attraction.pictures.each do |picture|%>
+    <%= image_tag picture %>
+    <% end %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @attraction.location %>
+</p>
+
+<%= link_to 'Edit', edit_attraction_path(@attraction) %> |
+<%= link_to 'Back', attractions_path %>
