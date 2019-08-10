@@ -7,3 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+locations = Location.create(
+    {name:"Tokyo", description:"Tokyo, one of the world's largest cities, offers a uniquely eclectic mix of traditional and contemporary attractions. Please enjoy and discover Tokyo and beyond during your stay for a conference, meeting or business travel.", }
+)
+

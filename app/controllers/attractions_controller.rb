@@ -5,9 +5,11 @@ class AttractionsController < ApplicationController
   # GET /attractions.json
   def index
     @attractions = Attraction.all
+    
     @random_attraction = Attraction.all.sample
-    @location = Location.find_by(params[:id])
-    @correct_location = @location.attraction
+    # @random_attraction = Attraction.all.sample
+    @location = Location.find_by(id: params[:id])
+    @correct_location = @location.attractions
 
   
   end

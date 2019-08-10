@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <div class="attraction_name">
 <div class="d-flex justify-content-center">
-<%= @correct_location %>
+<%= @correct_location[0].name %>
 </div>
 </div>
 
+<div id="img_attraction">
 <div class="d-flex justify-content-start">
-<%= image_tag @random_attraction.pictures.first %>
+<%= image_tag @correct_location[0].pictures.first %>
+</div>
 </div>
 
+<div id="description">
 <div class="d-flex justify-content-end">
-<%=  @random_attraction.description %>
+<%=  @correct_location[0].description %>
+</div>
 </div>
 
+<div class="btn_feature">
 <div id="attraction_btn">
 <div class="d-flex justify-content-center">
 <%= form_tag attractions_path, :method => :get do %>
@@ -36,6 +43,7 @@
     </div>
   
 <% end %>
+</div>
 </div>
 </div>
 
